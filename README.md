@@ -165,9 +165,9 @@ your-terminal> sudo pip3 install notebook
 
 3. Jupyter Notebook 비밀번호 설정
 
-  정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
+    정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
 
-  *비밀번호 설정 완료 후, **_`control + Z`_** 키를 눌러 python3 에서 나옴*
+    *비밀번호 설정 완료 후, **_`control + Z`_** 키를 눌러 python3 에서 나옴*
 ```sh
 your-terminal> python3
 
@@ -186,9 +186,9 @@ Verify password:
 
 4. Jupyter Notebook 설정파일 생성
 
-  *정상적으로 환경 설정 파일이 생성되면 해당 파일의 경로가 표시 됨*
+    *정상적으로 환경 설정 파일이 생성되면 해당 파일의 경로가 표시 됨*
 
-  *생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
+    *생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
 ```sh
 your-terminal> cd ~
 your-terminal> jupyter notebook --geneate-config
@@ -220,9 +220,7 @@ c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 ```
 6. Jupyter Notebook 백그라운드 실행 설정
 
-정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 
-
-해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **`백그라운드에서 실행되도록 설정`**해야 함
+    정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **`백그라운드에서 실행되도록 설정`**해야 함
 ```sh
 your-terminal> bg
 
