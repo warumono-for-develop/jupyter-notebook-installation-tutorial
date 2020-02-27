@@ -56,9 +56,9 @@
     * [Step 4 Jupyter Notebook 설정 파일 생성 및 편집](#step-4)
     * [Step 6 Jupyter Notebook 백그라운드 실행 설정](#step-5)
 * [Usage](#usage)
-  * [Run Jupyter Notebook](#run-jupyter-notebook)
-  * [Connect to Jupyter Notebook](#connect-to-jupyter-notebook)
-  * [Jupyter Notebook Sample](#jupyter-notebook-sample)
+  * [Step 1 Run Jupyter Notebook](#run-jupyter-notebook)
+  * [Step 2 Connect to Jupyter Notebook](#connect-to-jupyter-notebook)
+  * [Step 3 Jupyter Notebook Dashboard](#jupyter-notebook-dashboard)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -299,7 +299,9 @@ your-terminal> disown -h
 
 정상적으로 Jupyter Notebook 설치 및 설정이 완료되었다면 실행하여 웹 브라우져로 접근 후 확인
 
-#### Step 1. Run Jupyter Notebook
+#### Step 1
+
+##### Run Jupyter Notebook
 
 ```sh
 your-terminal> sudo jupyter-notebook --allow-root
@@ -308,7 +310,9 @@ your-terminal> sudo jupyter-notebook --allow-root
 ...
 ```
 
-#### Step 2. Connect to Jupyter Notebook
+#### Step 2
+
+##### Connect to Jupyter Notebook
 
 Google Chrome 브라우져를 실행하고 URL 입력 창에 **_`https://{auto-jupyter-notebook-url}:{your-jupyter-notebook-port}/`_** 를 입력하여 접속
 
@@ -316,7 +320,9 @@ Google Chrome 브라우져의 경우 알 수 없는 인증기관에서 발급된
 
 이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **_`thisisunsafe`_** 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
 
-#### Step 3. Jupyter Notebook Sample
+#### Step 3
+
+##### Jupyter Notebook Dashboard
 
   *Jupyter 공식 웹사이트의 예시 화면*
 
