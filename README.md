@@ -22,7 +22,7 @@
   <h1 align="center">Jupyter Notebook Installation Tutorial</h1>
 
   <p align="center">
-    AWS EC2 인스턴스 접속 및 스토리지, 터미널을 웹 브라우져로 사용할 수 있는 Jupyter Notebook 설치에 관한 사용 지침서
+    AWS EC2 인스턴스 접속 및 리소스 관리, CLI 등을 웹 브라우져를 이용하여 관리 하는 Jupyter Notebook 프로그램 설치 관련 지침서
     <br />
     <a href="https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial"><strong>Explore the docs »</strong></a>
     <br />
@@ -147,13 +147,13 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 
 #### AWS EC2 인스턴스 **생성** 및 **활성화**
 
-    기존 AWS EC2 인스턴스 또는 새로운 인스턴스를 생성하여 정상적으로 구동중인 서버
+기존 AWS EC2 인스턴스 또는 새로운 인스턴스를 생성하여 정상적으로 구동중인 서버
 
 #### AWS EC2 인스턴스 **내부 IP** 정보
 
-    AWS EC2 인스턴스의 상세 정보 중 `Private IPs`
+AWS EC2 인스턴스의 상세 정보 중 `Private IPs`
 
-    *Private IPs 정보는 터미널의 명령어를 이용하여도 확인 가능*
+*Private IPs 정보는 터미널의 명령어를 이용하여도 확인 가능*
 
 ```sh
 your-terminal> ifconfig
@@ -161,11 +161,13 @@ your-terminal> ifconfig
 
 #### AWS EC2 인스턴스의 **보안 그룹 설정**
 
-    AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
+AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
 
 #### OpenSSL **사설 인증서**
 
-    ssl 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 보안성을 높이기 위하여 사용하는 것을 권장
+SSL 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 보안성을 높이기 위하여 사용하는 것을 권장
+
+*정상적으로 발급받은 인증서를 사용할 것을 권장*
 
 ```sh
 your-terminal> cd ~
@@ -208,9 +210,9 @@ your-terminal> sudo pip3 install notebook
 
 ##### Jupyter Notebook 비밀번호 설정
 
-    정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
+정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
 
-    *비밀번호 설정 완료 후, **_`control + Z`_** 키를 눌러 python3 에서 나옴*
+*비밀번호 설정 완료 후, **_`control + Z`_** 키를 눌러 python3 에서 나옴*
     
 ```sh
 your-terminal> python3
@@ -232,9 +234,9 @@ Verify password:
 
 ##### Jupyter Notebook 설정 파일 생성 및 편집
 
-    *정상적으로 설정 파일이 생성되면 해당 파일의 경로가 표시 됨*
+정상적으로 설정 파일이 생성되면 해당 파일의 경로가 표시 됨
 
-    *생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
+*생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
 
 ```sh
 your-terminal> cd ~
@@ -275,7 +277,7 @@ c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 
 ##### Jupyter Notebook 백그라운드 실행 설정
 
-    정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **`백그라운드에서 실행되도록 설정`**해야 함
+정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **`백그라운드에서 실행되도록 설정`**해야 함
 
 ```sh
 your-terminal> bg
