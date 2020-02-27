@@ -93,7 +93,7 @@ Jupyter Notebook 을 사용하는 이유:
 
   OpenSSL 1.1.1  11 Sep 2018
 
-  *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음
+  *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
 
 
 
