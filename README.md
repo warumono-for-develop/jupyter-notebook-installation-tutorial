@@ -236,7 +236,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 warumono - warumono.for.develop@gmail.com
-link: [https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial](https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial)
+
+Project link: [https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial](https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial)
 
 
 
