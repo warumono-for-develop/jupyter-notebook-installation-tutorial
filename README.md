@@ -97,6 +97,9 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 
 *설명글에 나오는 용어 및 단어 등은 되도록 공식적(?)으로 사용되는 것으로 표기하였으나 오탈자 및 잘못된 용어 또는 정보가 있을 수 있음*
 
+*your-teminal> 사용자의 터미널 프로그램 프롬프트를 나타내며 입력하는 문자가 아님*
+*{your-xxx} : 사용자가 정의해야하는 항목 변수이며 임의의 이름이나 특정된 명칭 등으로 입력*
+
 
 ### Prerequisites
 
@@ -104,14 +107,12 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 
 * AWS EC2 인스턴스 내부 IP 정보
 
-AWS EC2 인스턴스의 상세 정보 중 **Private IPs**[^scala]
+AWS EC2 인스턴스의 상세 정보 중 **Private IPs**
 
 또한 이 정보는 터미널의 명령어를 이용하여 확인 가능
 ```sh
-your-terminal> ifconfig
+your-terminal> **ifconfig**
 ```
-
-\[^scala]: 스칼라는 마틴 오더시크가 개발한 함수형 언어이다.
 
 * AWS EC2 인스턴스의 보안 그룹 설정
 AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
@@ -137,14 +138,18 @@ your-terminal> ls
 your-terminal> sudo apt-get install python3-pip
 ...
 ```
+
 2. Jupyter Notebook 설치
 ```sh
 your-terminal> sudo pip3 install notebook
 ...
 ```
+
 3. Jupyter Notebook 비밀번호 설정
+
 __정상적으로 입력한 비밀번호에 따른 해시 값이 나오면 이 해시 값을 메모하여 이 후 설정 단계에서 사용__
-*비밀번호 설정 완료 후, control + Z 키를 눌러 python3 로 부터 나옴*
+
+*비밀번호 설정 완료 후, **`control + Z`** 키를 눌러 python3 로 부터 나옴*
 ```sh
 your-terminal> python3
 Python 3.6.5 ...
@@ -155,18 +160,24 @@ Enter password:
 Verify password:
 'sha1:a8dfhlqer234n239f7afdsa32470dfabdfl1234fj82m42jf9mnaaw8r'
 ```
+
 4. Jupyter Notebook 설정파일 생성
+
 *정상적으로 환경 설정 파일이 생성되면 해당 파일의 경로가 표시 됨*
+
+*생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
 ```sh
 your-terminal> cd ~
 your-terminal> jupyter notebook --geneate-config
 Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
 ```
+
 5. Jupyter Notebook 설정파일 편집
-```
+```sh
 your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
-jupyter_notebook_config.py 내부
+
+jupyter_notebook_config.py 내용
 ```sh
 ...
 # ============================================================
@@ -180,8 +191,11 @@ c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
 c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 ```
 6. Jupyter Notebook 백그라운드 실행 설정
-__정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 백그라운드에서 실행되도록 설정해야 함__
-```
+
+정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 
+
+해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 `백그라운드에서 실행되도록 설정`해야 함
+```sh
 your-terminal> bg
 [3]+ sudo jupyter-notebook --allow-root &
 your-terminal> disown -h
@@ -193,19 +207,22 @@ your-terminal> disown -h
 ## Usage
 
 정상적으로 Jupyter Notebook 설치와 설정이 완료되었다면, 실행하여 정상적으로 접근하여 사용할 수 있는지를 확인
+
 * Jupyter Notebook 실행
-```
+```sh
 your-terminal> sudo jupyter-notebook --allow-root
 ...
-[...] https://your-jupyter-notebook-url:your-jupyter-notebook-port/
+[...] https://{your-jupyter-notebook-url}:{your-jupyter-notebook-port}/
 ...
 ```
+
 * Jupyter Notebook 접속
-Google Chrome 브라우져를 실행하고 URL 입력 창에 `https://your-jupyter-notebook-url:your-jupyter-notebook-port/` 를 입력하여 접속
+
+Google Chrome 브라우져를 실행하고 URL 입력 창에 `https://{your-jupyter-notebook-url}:{your-jupyter-notebook-port}/` 를 입력하여 접속
 
 Google Chrome 브라우져의 경우 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 `경고 화면`이 나오게 됨
 
-이 경우, 경고 화면에서 어떠한 동작도 하지 않고 `thisisunsafe` 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
+이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **`thisisunsafe`** 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
 
 
 <!-- ROADMAP -->
