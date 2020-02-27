@@ -1,10 +1,18 @@
 <!-- SHIELDS -->
+
+
+
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+
+
 <!-- LOGO -->
+
+
+
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
@@ -30,6 +38,9 @@
 
 
 <!-- TABLE OF CONTENTS -->
+
+
+
 ## Table of Contents
 
 * [About the Tutorial](#about-the-tutorial)
@@ -42,7 +53,7 @@
     * [Step 1 python3-pip 프로그램 설치](#step-1)
     * [Step 2 Jupyter Notebook 설치](#step-2)
     * [Step 3 Jupyter Notebook 비밀번호 설정](#step-3)
-    * [Step 4 Jupyter Notebook 설정파일 생성 및 편집](#step-4)
+    * [Step 4 Jupyter Notebook 설정 파일 생성 및 편집](#step-4)
     * [Step 6 Jupyter Notebook 백그라운드 실행 설정](#step-5)
 * [Usage](#usage)
   * [Run Jupyter Notebook](#run-jupyter-notebook)
@@ -57,13 +68,16 @@
 
 
 <!-- ABOUT THE PROJECT -->
+
+
+
 ## About The Tutorial
 
-AWS EC2 인스턴스를 생성하였다면, 생성한 인스턴스에 접속하기 위하여 접속 관련 정보를 관리하고 사용해야하는데 있어 번거로움
+AWS EC2 인스턴스에 접속하기 위하여 접속 관련 정보를 관리하고 사용해야하는데 있어 번거로움
 
-터미널 프로그램을 이용하여 AWS EC2 인스턴스에 접속하고나서 터미널을 종료한다거나 일정시간이 지나면 접속이 자동으로 끊기는 경우에 재접속하고자 하는 경우 재차 접속 관련 정보를 입력해야하는 불편함
+AWS EC2 인스턴스에 접속한 터미널을 종료한다거나 일정시간이 지나면 접속이 자동으로 종료되어 재차 접속 관련 정보를 입력해야하는 번거로움
 
-타인과 협업을 하게 될 경우, AWS 인증 키를 여러 개 만듦(또는 복사)으로써 관리하기에 불편하고 보안성이 떨어짐
+타인과 협업을 하게 될 경우, AWS 인증 키를 여러 개 만듦(또는 복사)으로써 보안성이 떨어지고 관리가 번거로움
 
 Jupyter Notebook 을 사용하는 이유:
 * EC2 접속 관련 정보 메모 불필요
@@ -73,13 +87,11 @@ Jupyter Notebook 을 사용하는 이유:
 
 *Jupyter Notebook 외 다른 프로그램 또는 방법들도 있겠지만, 이 프로그램을 써보는 것도 추천*
 
-
 ### Official Website
 
 공식 사이트 또는 관련 정보를 미리 숙지하고 사용할 것을 권장
 
 * [Project Jupyter](https://jupyter.org/)
-
 
 ### Built with
 
@@ -110,6 +122,9 @@ Jupyter Notebook 을 사용하는 이유:
 
 
 <!-- GETTING STARTED -->
+
+
+
 ## Getting Started
 
 Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하는 작업이 많으므로 진행 순서와 오탈자에 주의
@@ -127,7 +142,6 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 **_`{your-xxx}`_** 사용자가 정의해야하는 항목 변수이며 사용자가 직접 임의의 이름이나 특정된 값 등으로 입력
 
 **_`{auto-xxx}`_** 사용자의 요청에 따른 결과 항목 변수이며 프로그램이 임의의 이름이나 특정된 값 등으로 노출
-
 
 ### Prerequisites
 
@@ -274,6 +288,9 @@ your-terminal> disown -h
 
 
 <!-- USAGE EXAMPLES -->
+
+
+
 ## Usage
 
 정상적으로 Jupyter Notebook 설치 및 설정이 완료되었다면 실행하여 웹 브라우져로 접근 후 확인
@@ -295,19 +312,20 @@ Google Chrome 브라우져의 경우 알 수 없는 인증기관에서 발급된
 
 이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **_`thisisunsafe`_** 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
 
-
 #### Step 3. Jupyter Notebook Sample
 
   *Jupyter 공식 웹사이트의 예시 화면*
 
   예시 화면의 오른쪽 위 **`New`** 버튼을 눌러 Drop Down 메뉴 중 **`Terminal`** 을 선택하면 새 브라우져 창(또는 새 탭)으로 터미널 화면이 나옴 
 
-![Jupyter Notebook Dashboard](https://jupyter.readthedocs.io/en/latest/_images/tryjupyter_file.png)
-
+  ![Jupyter Notebook Dashboard](https://jupyter.readthedocs.io/en/latest/_images/tryjupyter_file.png)
 
 
 
 <!-- ROADMAP -->
+
+
+
 ## Roadmap
 
 See the [open issues](https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial/issues) for a list of proposed features (and known issues).
@@ -315,19 +333,29 @@ See the [open issues](https://github.com/warumono-for-develop/jupyter-notebook-i
 
 
 <!-- CONTRIBUTING -->
+
+
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
+
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
+
 5. Open a Pull Request
 
 
 
 <!-- LICENSE -->
+
+
+
 ## License
 
 Distributed under the MIT License. See [`LICENSE`][license-url] for more information.
@@ -335,6 +363,9 @@ Distributed under the MIT License. See [`LICENSE`][license-url] for more informa
 
 
 <!-- CONTACT -->
+
+
+
 ## Contact
 
 **warumono** - warumono.for.develop@gmail.com
@@ -344,13 +375,21 @@ Project link: [https://github.com/warumono-for-develop/jupyter-notebook-installa
 
 
 <!-- ACKNOWLEDGEMENTS -->
+
+
+
 ## Acknowledgements
+
 * [안경잡이개발자](https://ndb796.tistory.com/)
+
 * [othneildrew](https://github.com/othneildrew)
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
+
+
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/warumono-for-develop/jupyter-notebook-installation-tutorial.svg?style=flat-square
 [contributors-url]: https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial/graphs/contributors
