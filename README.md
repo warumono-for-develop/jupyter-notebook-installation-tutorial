@@ -102,7 +102,9 @@ Jupyter Notebook 을 사용하는 이유:
 
 Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하는 작업이 많으므로 진행 순서와 오탈자에 주의
 
-*설명글에 나오는 용어 및 단어 등은 되도록 공식적(?)으로 사용되는 것으로 표기하였으나 오탈자 및 잘못된 용어 또는 정보가 있을 수 있음*
+*사용자가 사용하는 프로그램 버전과 환경 등에 따라 설명글의 진행 절차와 결과가 다소 다르거나 생략 또는 추가 작업이 있을 수 있음*
+
+*설명글에 사용되는 용어 및 단어 등은 되도록 공식적(?)으로 사용되는 것으로 표기하였으나 오탈자 및 잘못된 용어 또는 정보가 있을 수 있음*
 
 ### References
 **_`your-teminal>`_** 사용자의 터미널 프로그램 프롬프트를 나타내며 입력하는 문자가 아님
@@ -131,7 +133,7 @@ your-terminal> ifconfig
 
 - OpenSSL 사설 인증서
 
-  *ssl 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 사용하는 것을 권장*
+  *ssl 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 보안성을 높이기 위하여 사용하는 것을 권장*
 ```sh
 your-terminal> cd ~
 
@@ -181,7 +183,7 @@ Enter password:
 
 Verify password:
 
-'sha1:auto-password-hash-value-a63jfuq34nhfgd0fdk50df02y9nm10'
+'sha1:{auto-password-hash-value}'
 ```
 
 4. Jupyter Notebook 설정파일 생성
@@ -191,7 +193,9 @@ Verify password:
     *생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
 ```sh
 your-terminal> cd ~
+
 your-terminal> jupyter notebook --geneate-config
+
 Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
 ```
 
