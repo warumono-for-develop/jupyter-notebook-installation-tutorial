@@ -102,7 +102,8 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 
 * AWS EC2 인스턴스 **생성** 및 **활성화**
 
-* EC2 인스턴스 내부 IP 정보
+* EC2 인스턴스 내부 IP 정보[^ec2-instance-private-ip]
+[^ec2-instance-private-ip]: Your AWS EC2 Instance Private IP.
 
 EC2 인스턴스의 상세 정보 중 **Private IPs**
 또한 이 정보는 터미널의 명령어를 이용하여 확인 가능
