@@ -76,18 +76,24 @@ Jupyter Notebook 을 사용하는 이유:
 ### Built with
 
 - [x] [AWS](https://aws.amazon.com/ko/) EC2 Instance
-<Free tier> Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
+
+  \[Free tier\] Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
 
 - [x] [Python](https://www.python.org/)
-Python 3.6.9
-*Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
+
+  Python 3.6.9
+
+  *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
 
 - [x] [Google Chrome Browser](https://www.google.com/intl/ko/chrome/)
-Version 80.0.3987.122 (Official Build) (64-bit)
+
+  Version 80.0.3987.122 (Official Build) (64-bit)
 
 - [ ] [OpenSSL](https://www.openssl.org/)
-OpenSSL 1.1.1  11 Sep 2018
-*Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
+
+  OpenSSL 1.1.1  11 Sep 2018
+
+  *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음
 
 
 
@@ -101,7 +107,9 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 ### References
 **_`your-teminal>`_** 사용자의 터미널 프로그램 프롬프트를 나타내며 입력하는 문자가 아님
 
-**_`{your-xxx}`_** 사용자가 정의해야하는 항목 변수이며 임의의 이름이나 특정된 명칭 등으로 입력*
+**_`{your-xxx}`_** 사용자가 정의해야하는 항목 변수이며 사용자가 직접 임의의 이름이나 특정된 값 등으로 입력
+
+**_`{auto-xxx}`_** 사용자의 요청에 따른 결과 항목 변수이며 프로그램이 임의의 이름이나 특정된 값 등으로 노출
 
 
 ### Prerequisites
@@ -117,17 +125,24 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 your-terminal> ifconfig
 ```
 
-* AWS EC2 인스턴스의 보안 그룹 설정
-AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
+- AWS EC2 인스턴스의 보안 그룹 설정
 
-* OpenSSL 사설 인증서
-*ssl 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 사용하는 것을 권장*
+  AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
+
+- OpenSSL 사설 인증서
+
+  *ssl 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 사용하는 것을 권장*
 ```sh
 your-terminal> cd ~
+
 your-terminal> mkdir {your-ssl-file-directory-name}
+
 your-terminal> cd {your-ssl-file-directory-name}
+
 your-terminal> sudo openssl req -x509 -nodes -days {your-valid-day-count} -newkey rsa:1024 -keyout "{your-private-cert-file-name}.key" -out "{your-public-cert-file-name}.pem" -batch
+
 your-terminal> ls
+
 {your-private-cert-file-name}.key  {your-public-cert-file-name}.pem
 ```
 
@@ -150,25 +165,30 @@ your-terminal> sudo pip3 install notebook
 
 3. Jupyter Notebook 비밀번호 설정
 
-__정상적으로 입력한 비밀번호에 따른 해시 값이 나오면 이 해시 값을 메모하여 이 후 설정 단계에서 사용__
+  정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
 
-*비밀번호 설정 완료 후, **`control + Z`** 키를 눌러 python3 로 부터 나옴*
+  *비밀번호 설정 완료 후, **_`control + Z`_** 키를 눌러 python3 에서 나옴*
 ```sh
 your-terminal> python3
+
 Python 3.6.5 ...
 .....
 >> from from notebook.auth import passwd
+
 >> passwd()
+
 Enter password:
+
 Verify password:
-'sha1:a8dfhlqer234n239f7afdsa32470dfabdfl1234fj82m42jf9mnaaw8r'
+
+'sha1:auto-password-hash-value-a63jfuq34nhfgd0fdk50df02y9nm10'
 ```
 
 4. Jupyter Notebook 설정파일 생성
 
-*정상적으로 환경 설정 파일이 생성되면 해당 파일의 경로가 표시 됨*
+  *정상적으로 환경 설정 파일이 생성되면 해당 파일의 경로가 표시 됨*
 
-*생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
+  *생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
 ```sh
 your-terminal> cd ~
 your-terminal> jupyter notebook --geneate-config
@@ -180,27 +200,34 @@ Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
 your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
 
-jupyter_notebook_config.py 내용
+`jupyter_notebook_config.py` 내용
 ```sh
 ...
 # ============================================================
 # your comment
 # ============================================================
 c = get_config()
+
 c.NotebookApp.password = u'{your-jupyter-password-hash-value}'
+
 c.NotebookApp.ip = '{your-aws-ec2-private-ip}'
+
 c.NotebookApp.notebook_dir = '{your-jupyter-file-explorer-begin-path}'
+
 c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
+
 c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 ```
 6. Jupyter Notebook 백그라운드 실행 설정
 
 정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 
 
-해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 `백그라운드에서 실행되도록 설정`해야 함
+해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **`백그라운드에서 실행되도록 설정`**해야 함
 ```sh
 your-terminal> bg
+
 [3]+ sudo jupyter-notebook --allow-root &
+
 your-terminal> disown -h
 ```
 
@@ -215,17 +242,17 @@ your-terminal> disown -h
 ```sh
 your-terminal> sudo jupyter-notebook --allow-root
 ...
-[...] https://{your-jupyter-notebook-url}:{your-jupyter-notebook-port}/
+[...] https://{auto-jupyter-notebook-url}:{your-jupyter-notebook-port}/
 ...
 ```
 
 * Jupyter Notebook 접속
 
-Google Chrome 브라우져를 실행하고 URL 입력 창에 `https://{your-jupyter-notebook-url}:{your-jupyter-notebook-port}/` 를 입력하여 접속
+Google Chrome 브라우져를 실행하고 URL 입력 창에 **_`https://{auto-jupyter-notebook-url}:{your-jupyter-notebook-port}/`_** 를 입력하여 접속
 
 Google Chrome 브라우져의 경우 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 `경고 화면`이 나오게 됨
 
-이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **`thisisunsafe`** 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
+이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **_`thisisunsafe`_** 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
 
 
 <!-- ROADMAP -->
@@ -258,7 +285,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-warumono - warumono.for.develop@gmail.com
+**warumono** - warumono.for.develop@gmail.com
 
 Project link: [https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial](https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial)
 
