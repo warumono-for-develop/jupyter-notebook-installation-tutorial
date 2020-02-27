@@ -352,6 +352,5 @@ Project link: [https://github.com/warumono-for-develop/jupyter-notebook-installa
 [issues-shield]: https://img.shields.io/github/issues/warumono-for-develop/jupyter-notebook-installation-tutorial.svg?style=flat-square
 [issues-url]: https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial/issues
 [license-shield]: https://img.shields.io/github/license/warumono-for-develop/jupyter-notebook-installation-tutorial.svg?style=flat-square
-[license-url]: https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial/blob/master/LICENSE.txt
-[license-file]: LICENSE.txt
+[license-url]: https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial/blob/master/LICENSE
 [product-screenshot]: images/screenshot.png
