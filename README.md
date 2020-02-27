@@ -36,6 +36,7 @@
   * [Official Website](#official-website)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
+  * [References](#references)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
@@ -74,19 +75,19 @@ Jupyter Notebook 을 사용하는 이유:
 
 ### Built with
 
-[AWS](https://aws.amazon.com/ko/) EC2 Instance
+- [x] [AWS](https://aws.amazon.com/ko/) EC2 Instance
 <Free tier> Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
 
-[Python](https://www.python.org/)
+- [x] [Python](https://www.python.org/)
 Python 3.6.9
 *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
 
-[OpenSSL](https://www.openssl.org/)
+- [x] [Google Chrome Browser](https://www.google.com/intl/ko/chrome/)
+Version 80.0.3987.122 (Official Build) (64-bit)
+
+- [ ] [OpenSSL](https://www.openssl.org/)
 OpenSSL 1.1.1  11 Sep 2018
 *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
-
-[Google Chrome Browser](https://www.google.com/intl/ko/chrome/)
-Version 80.0.3987.122 (Official Build) (64-bit)
 
 
 
@@ -97,21 +98,23 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 
 *설명글에 나오는 용어 및 단어 등은 되도록 공식적(?)으로 사용되는 것으로 표기하였으나 오탈자 및 잘못된 용어 또는 정보가 있을 수 있음*
 
-*your-teminal> 사용자의 터미널 프로그램 프롬프트를 나타내며 입력하는 문자가 아님*
-*{your-xxx} : 사용자가 정의해야하는 항목 변수이며 임의의 이름이나 특정된 명칭 등으로 입력*
+### References
+**_`your-teminal>`_** 사용자의 터미널 프로그램 프롬프트를 나타내며 입력하는 문자가 아님
+
+**_`{your-xxx}`_** 사용자가 정의해야하는 항목 변수이며 임의의 이름이나 특정된 명칭 등으로 입력*
 
 
 ### Prerequisites
 
 * AWS EC2 인스턴스 **생성** 및 **활성화**
 
-* AWS EC2 인스턴스 내부 IP 정보
+- AWS EC2 인스턴스 내부 IP 정보
 
-AWS EC2 인스턴스의 상세 정보 중 **Private IPs**
+  AWS EC2 인스턴스의 상세 정보 중 **Private IPs**
 
-또한 이 정보는 터미널의 명령어를 이용하여 확인 가능
+  또한 이 정보는 터미널의 명령어를 이용하여 확인 가능
 ```sh
-your-terminal> **ifconfig**
+your-terminal> ifconfig
 ```
 
 * AWS EC2 인스턴스의 보안 그룹 설정
@@ -121,9 +124,9 @@ AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inb
 *ssl 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 사용하는 것을 권장*
 ```sh
 your-terminal> cd ~
-your-terminal> mkdir {your-ssh-file-directory-name}
-your-terminal> cd {your-ssh-file-directory-name}
-your-terminal> sudo openssl req -x509 -nodes -days {your-valid-date} -newkey rsa:1024 -keyout "{your-private-cert-file-name}.key" -out "{your-public-cert-file-name}.pem" -batch
+your-terminal> mkdir {your-ssl-file-directory-name}
+your-terminal> cd {your-ssl-file-directory-name}
+your-terminal> sudo openssl req -x509 -nodes -days {your-valid-day-count} -newkey rsa:1024 -keyout "{your-private-cert-file-name}.key" -out "{your-public-cert-file-name}.pem" -batch
 your-terminal> ls
 {your-private-cert-file-name}.key  {your-public-cert-file-name}.pem
 ```
@@ -132,7 +135,7 @@ your-terminal> ls
 
 1. python3-pip 프로그램 설치
 ```sh
-> sudo apt-get update
+your-terminal> sudo apt-get update
 ...
 
 your-terminal> sudo apt-get install python3-pip
