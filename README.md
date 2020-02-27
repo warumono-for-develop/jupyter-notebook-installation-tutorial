@@ -16,16 +16,14 @@
   <p align="center">
     AWS EC2 인스턴스 접속 및 스토리지, 터미널을 웹 브라우져로 사용할 수 있는 Jypyter Notebook 설치에 관한 사용 지침서
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <!--
+    <a href="https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial">View Tutorial</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-    -->
+    <a href="https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial/issues">Request Feature</a>
   </p>
 </p>
 
