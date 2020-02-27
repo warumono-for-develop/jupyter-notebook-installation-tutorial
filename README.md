@@ -39,7 +39,16 @@
   * [References](#references)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+    * [Step 1 python3-pip 프로그램 설치](#step-1)
+    * [Step 2 Jupyter Notebook 설치](#step-2)
+    * [Step 3 Jupyter Notebook 비밀번호 설정](#step-3)
+    * [Step 4 Jupyter Notebook 설정파일 생성](#step-4)
+    * [Step 5 Jupyter Notebook 설정파일 편집](#step-5)
+    * [Step 6 Jupyter Notebook 백그라운드 실행 설정](#step-6)
 * [Usage](#usage)
+  * [Run Jupyter Notebook](#run-jupyter-notebook)
+  * [Connect to Jupyter Notebook](#connect-to-jupyter-notebook)
+  * [Jupyter Notebook Sample](#jupyter-notebook-sample)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -75,6 +84,8 @@ Jupyter Notebook 을 사용하는 이유:
 
 ### Built with
 
+#### Required
+
 - [x] [AWS](https://aws.amazon.com/ko/) EC2 Instance
 
   \[Free tier\] Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
@@ -88,6 +99,8 @@ Jupyter Notebook 을 사용하는 이유:
 - [x] [Google Chrome Browser](https://www.google.com/intl/ko/chrome/)
 
   Version 80.0.3987.122 (Official Build) (64-bit)
+
+#### Optional
 
 - [ ] [OpenSSL](https://www.openssl.org/)
 
@@ -107,6 +120,7 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 *설명글에 사용되는 용어 및 단어 등은 되도록 공식적(?)으로 사용되는 것으로 표기하였으나 오탈자 및 잘못된 용어 또는 정보가 있을 수 있음*
 
 ### References
+
 **_`your-teminal>`_** 사용자의 터미널 프로그램 프롬프트를 나타내며 입력하는 문자가 아님
 
 **_`{your-xxx}`_** 사용자가 정의해야하는 항목 변수이며 사용자가 직접 임의의 이름이나 특정된 값 등으로 입력
@@ -150,7 +164,10 @@ your-terminal> ls
 
 ### Installation
 
-1. python3-pip 프로그램 설치
+#### Step 1
+
+##### python3-pip 프로그램 설치
+
 ```sh
 your-terminal> sudo apt-get update
 ...
@@ -159,13 +176,18 @@ your-terminal> sudo apt-get install python3-pip
 ...
 ```
 
-2. Jupyter Notebook 설치
+#### Step 2
+
+##### Jupyter Notebook 설치
+
 ```sh
 your-terminal> sudo pip3 install notebook
 ...
 ```
 
-3. Jupyter Notebook 비밀번호 설정
+#### Step 3
+
+##### Jupyter Notebook 비밀번호 설정
 
     정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
 
@@ -186,7 +208,9 @@ Verify password:
 'sha1:{auto-password-hash-value}'
 ```
 
-4. Jupyter Notebook 설정파일 생성
+#### Step 4
+
+##### Jupyter Notebook 설정파일 생성
 
     *정상적으로 환경 설정 파일이 생성되면 해당 파일의 경로가 표시 됨*
 
@@ -199,7 +223,9 @@ your-terminal> jupyter notebook --geneate-config
 Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
 ```
 
-5. Jupyter Notebook 설정파일 편집
+#### Step 5
+
+##### Jupyter Notebook 설정파일 편집
 ```sh
 your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
@@ -212,17 +238,20 @@ your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 # ============================================================
 c = get_config()
 
-c.NotebookApp.password = u'{your-jupyter-password-hash-value}'
+c.NotebookApp.password = u'{auto-password-hash-value}'
 
 c.NotebookApp.ip = '{your-aws-ec2-private-ip}'
 
-c.NotebookApp.notebook_dir = '{your-jupyter-file-explorer-begin-path}'
+c.NotebookApp.notebook_dir = '{your-aws-ec2-begin-path}'
 
 c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
 
 c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 ```
-6. Jupyter Notebook 백그라운드 실행 설정
+
+#### Step 6
+
+##### Jupyter Notebook 백그라운드 실행 설정
 
     정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **`백그라운드에서 실행되도록 설정`**해야 함
 ```sh
@@ -238,9 +267,10 @@ your-terminal> disown -h
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-정상적으로 Jupyter Notebook 설치와 설정이 완료되었다면, 실행하여 정상적으로 접근하여 사용할 수 있는지를 확인
+정상적으로 Jupyter Notebook 설치 및 설정이 완료되었다면 실행하여 웹 브라우져로 접근 후 확인
 
-* Jupyter Notebook 실행
+#### Step 1. Run Jupyter Notebook
+
 ```sh
 your-terminal> sudo jupyter-notebook --allow-root
 ...
@@ -248,7 +278,7 @@ your-terminal> sudo jupyter-notebook --allow-root
 ...
 ```
 
-* Jupyter Notebook 접속
+#### Step 2. Connect to Jupyter Notebook
 
 Google Chrome 브라우져를 실행하고 URL 입력 창에 **_`https://{auto-jupyter-notebook-url}:{your-jupyter-notebook-port}/`_** 를 입력하여 접속
 
@@ -257,7 +287,7 @@ Google Chrome 브라우져의 경우 알 수 없는 인증기관에서 발급된
 이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **_`thisisunsafe`_** 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
 
 
-- Jupyter Notebook 예시
+#### Step 3. Jupyter Notebook Sample
 
   *Jupyter 공식 웹사이트의 예시 화면*
 
