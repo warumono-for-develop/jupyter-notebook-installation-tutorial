@@ -52,7 +52,7 @@
 
 AWS EC2 인스턴스를 생성하였다면, 생성한 인스턴스에 접속하기 위하여 접속 관련 정보를 관리하고 사용해야하는데 있어 번거로움
 
-터미널 프로그램을 이용하여 EC2 인스턴스에 접속하고나서 터미널을 종료한다거나 일정시간이 지나면 접속이 자동으로 끊기는 경우에 재접속하고자 하는 경우 재차 접속 관련 정보를 입력해야하는 불편함
+터미널 프로그램을 이용하여 AWS EC2 인스턴스에 접속하고나서 터미널을 종료한다거나 일정시간이 지나면 접속이 자동으로 끊기는 경우에 재접속하고자 하는 경우 재차 접속 관련 정보를 입력해야하는 불편함
 
 타인과 협업을 하게 될 경우, AWS 인증 키를 여러 개 만듦(또는 복사)으로써 관리하기에 불편하고 보안성이 떨어짐
 
@@ -102,9 +102,9 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 
 * AWS EC2 인스턴스 **생성** 및 **활성화**
 
-* EC2 인스턴스 내부 IP 정보
+* AWS EC2 인스턴스 내부 IP 정보
 
-EC2 인스턴스의 상세 정보 중 **Private IPs**
+AWS EC2 인스턴스의 상세 정보 중 **Private IPs** <sup>(#your-ec2-instance-private-ip)</sup>
 
 또한 이 정보는 터미널의 명령어를 이용하여 확인 가능
 ```sh
@@ -112,7 +112,7 @@ your-terminal> ifconfig
 ```
 
 * AWS EC2 인스턴스의 보안 그룹 설정
-EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
+AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
 
 * OpenSSL 사설 인증서
 *ssl 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 사용하는 것을 권장*
@@ -172,7 +172,7 @@ jupyter_notebook_config.py 내부
 # ============================================================
 c = get_config()
 c.NotebookApp.password = u'{your-jupyter-password-hash-value}'
-c.NotebookApp.ip = '{your-ec2-private-ip}'
+c.NotebookApp.ip = '{your-aws-ec2-private-ip}'<sup>[<a name="your-ec2-instance-private-ip">1</a>]</sup>
 c.NotebookApp.notebook_dir = '{your-jupyter-file-explorer-begin-path}'
 c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
 c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
