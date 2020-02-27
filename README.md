@@ -104,12 +104,14 @@ Jupyter Notebook 을 설치는 터미널을 이용하여 명령어를 입력하�
 
 * AWS EC2 인스턴스 내부 IP 정보
 
-AWS EC2 인스턴스의 상세 정보 중 **Private IPs** <sup>(#your-ec2-instance-private-ip)</sup>
+AWS EC2 인스턴스의 상세 정보 중 **Private IPs**[^scala]
 
 또한 이 정보는 터미널의 명령어를 이용하여 확인 가능
 ```sh
 your-terminal> ifconfig
 ```
+
+\[^scala]: 스칼라는 마틴 오더시크가 개발한 함수형 언어이다.
 
 * AWS EC2 인스턴스의 보안 그룹 설정
 AWS EC2 인스턴스에 적용되어 있는 보안 그룹으로 이동하여 Inbound 에 Jupyter Notebook 에 접속할 URL 의 PORT 추가
@@ -172,7 +174,7 @@ jupyter_notebook_config.py 내부
 # ============================================================
 c = get_config()
 c.NotebookApp.password = u'{your-jupyter-password-hash-value}'
-c.NotebookApp.ip = '{your-aws-ec2-private-ip}'<sup>[<a name="your-ec2-instance-private-ip">1</a>]</sup>
+c.NotebookApp.ip = '{your-aws-ec2-private-ip}'
 c.NotebookApp.notebook_dir = '{your-jupyter-file-explorer-begin-path}'
 c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
 c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
