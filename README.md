@@ -14,7 +14,7 @@
   <h1 align="center">Jupyter Notebook Installation Tutorial</h1>
 
   <p align="center">
-    AWS EC2 인스턴스 접속 및 스토리지, 터미널을 웹 브라우져로 사용할 수 있는 Jypyter Notebook 설치에 관한 사용 지침서
+    AWS EC2 인스턴스 접속 및 스토리지, 터미널을 웹 브라우져로 사용할 수 있는 Jupyter Notebook 설치에 관한 사용 지침서
     <br />
     <a href="https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial"><strong>Explore the docs »</strong></a>
     <br />
