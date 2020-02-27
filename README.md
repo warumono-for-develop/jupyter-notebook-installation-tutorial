@@ -253,6 +253,17 @@ Google Chrome 브라우져의 경우 알 수 없는 인증기관에서 발급된
 이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **_`thisisunsafe`_** 문자를 키보드로 입력하면 Jupyter Notebook 화면으로 접근 가능
 
 
+- Jupyter Notebook 예시
+
+  *Jupyter 공식 웹사이트의 예시 화면*
+
+  예시 화면의 오른쪽 위 **`New`** 버튼을 눌러 Drop Down 메뉴 중 **`Terminal`** 을 선택하면 새 브라우져 창(또는 새 탭)으로 터미널 화면이 나옴 
+
+![Jupyter Notebook Dashboard](https://jupyter.readthedocs.io/en/latest/_images/tryjupyter_file.png)
+
+
+
+
 <!-- ROADMAP -->
 ## Roadmap
 
