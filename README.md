@@ -99,6 +99,10 @@ Jupyter Notebook 을 사용하는 이유 :
 
 #### Required
 
+- [x] [Jupyter Notebook](https://jupyter.org/)
+
+  jupyter-notebook : 6.0.3
+
 - [x] [AWS](https://aws.amazon.com/ko/) EC2 Instance
 
   \[Free tier\] Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
