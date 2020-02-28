@@ -216,7 +216,7 @@ your-terminal> sudo pip3 install notebook
 
 ##### Jupyter Notebook 비밀번호 설정
 
-정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
+정상적으로 입력한 **_`비밀번호에 따른 해시 값`_**이 나오면 이 해시 값을 **_`메모하여 이 후 설정 단계에서 사용`_**
 
 *비밀번호 설정 완료 후, **_`control + Z`_** 또는 **_`control + D`_** 키를 눌러 python3 에서 나옴*
     
@@ -283,7 +283,7 @@ c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 
 ##### Jupyter Notebook 백그라운드 실행 설정
 
-정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **`백그라운드에서 실행되도록 설정`**해야 함
+정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **_`백그라운드에서 실행되도록 설정`_**해야 함
 
 ```sh
 your-terminal> bg
@@ -324,7 +324,7 @@ Google Chrome 브라우져의 경우 알 수 없는 인증기관에서 발급된
 
   *Jupyter 공식 웹사이트의 예시 화면*
 
-  예시 화면의 오른쪽 위 **`New`** 버튼을 눌러 Drop Down 메뉴 중 **`Terminal`** 을 선택하면 새 브라우져 창(또는 새 탭)으로 터미널 화면이 나옴 
+  예시 화면의 오른쪽 위 **_`New`_** 버튼을 눌러 Drop Down 메뉴 중 **_`Terminal`_** 을 선택하면 새 브라우져 창(또는 새 탭)으로 터미널 화면이 나옴 
 
   ![Jupyter Notebook Dashboard](https://jupyter.readthedocs.io/en/latest/_images/tryjupyter_file.png)
 
