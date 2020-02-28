@@ -218,14 +218,14 @@ your-terminal> sudo pip3 install notebook
 
 정상적으로 입력한 **`비밀번호에 따른 해시 값`**이 나오면 이 해시 값을 **`메모하여 이 후 설정 단계에서 사용`**
 
-*비밀번호 설정 완료 후, **_`control + Z`_** 키를 눌러 python3 에서 나옴*
+*비밀번호 설정 완료 후, **_`control + Z`_** 또는 **_`control + D`_** 키를 눌러 python3 에서 나옴*
     
 ```sh
 your-terminal> python3
 
 Python 3.6.5 ...
 .....
->> from from notebook.auth import passwd
+>> from notebook.auth import passwd
 
 >> passwd()
 
