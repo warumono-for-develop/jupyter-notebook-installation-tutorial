@@ -143,7 +143,7 @@ Configure Jupyter Notebook
 ### Caution
 
 > 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 **IPv4 Public IP** 를 사용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 **Private IPs** 를 사용하므로 미리 메모    
-> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음		
+> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음   	
 > *작성자의 AWS EC2 인스턴스는 Elastic IP 미사용, 도메인 미사용 상태로 기본으로 제공되는 IP 정보만으로 설명하고 사용*
 
 설정 파일을 생성하고 VIM 에디터를 사용하여 비밀번호 등의 정보를 입력    
@@ -166,7 +166,7 @@ SSL 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 �
 사설 인증서보다는 정상적인 인증기관으로부터 발급받은 인증서를 사용할 것을 권장
 
 
-> sudo openssl req -x509 -nodes -days {valid-days} -newkey rsa:1024 -keyout "{your-juypter-notebook-ssl-keyfile-name}.key" -out "{your-jupyter-notebook-ssl-certfile-name}.pem" -batch
+> openssl req -x509 -nodes -days {valid-days} -newkey rsa:1024 -keyout "{your-juypter-notebook-ssl-keyfile-name}.key" -out "{your-jupyter-notebook-ssl-certfile-name}.pem" -batch
 
 ```sh
 your-terminal> mkdir ~/{your-ssl-file-directory-name}
@@ -179,19 +179,19 @@ my-jupyter-notebook-key.key  my-jupyter-notebook-cert.pem
 ---
 </details>
 
-설정 파일 기존 내용 마지막 아래에 설정 내용 추가 입력
+설정 파일 기존 내용 마지막 아래에 설정 내용 추가 입력   
+`{your-host-ip}` 는 AWS EC2 인스턴스 상세정보의 **Private IPs**   
+`{your-host-begin-path}` 는 Jupyter Notebook Dashboard 화면 (파일 탐색기와 같은 화면) 에서 AWS EC2 인스턴스 내부 스토리지 중 **실행 시 보여지게 될 경로**로써 자신이 원하는 정확한 경로를 입력    
 
 > c = get_config()    
 > c.NotebookApp.password = u'{generated-your-password-hash-value}'    
 > c.NotebookApp.ip = '{your-host-ip}'    
-> c.NotebookApp.notebook_dir = '{your-host-begin-path}'   
-> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'   
-> c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
+> c.NotebookApp.notebook_dir = '{your-host-begin-path}'
 
 ```sh
 ...
 # ============================================================
-# my jyputer-notebook configuration
+# my jupyter-notebook configuration
 # ============================================================
 c = get_config()
 c.NotebookApp.password = u'sha1:g0bf6y023f60:75h6h014f68d70c03175et61p4675c497b83u63'
@@ -209,7 +209,8 @@ SSL 을 적용하고자 사설 인증서를 생성하였다면, 다음 설정 �
 > c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
 
 ```sh
-
+...
+c.NotebookApp.notebook_dir = '/home/ubuntu'
 c.NotebookApp.keyfile = u'my-jupyter-notebook-key.key'
 c.NotebookApp.certfile = u'my-jupyter-notebook-cert.pem'
 ```
