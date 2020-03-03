@@ -142,7 +142,7 @@ Configure Jupyter Notebook
 
 ### Caution
 
-> 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 **IPv4 Public IP** 를 사용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 **Private IPs** 를 사용하므로 미리 메모    
+> 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 AWS EC2 인스턴스의 상세정보 중 **IPv4 Public IP** 를 사용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 상세정보 중 **Private IPs** 를 사용하므로 미리 메모    
 > AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음   	
 > *작성자의 AWS EC2 인스턴스는 Elastic IP 미사용, 도메인 미사용 상태로 기본으로 제공되는 IP 정보만으로 설명하고 사용*
 
@@ -241,7 +241,7 @@ your-terminal> disown -h
 
 ### Caution
 
-> 앞서 [Step 4](#step-4) 에서 설명한대로 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 AWS EC2 인스턴스의 **IPv4 Public IP** 를 사용
+> 앞서 [Step 4](#step-4) 에서 설명한대로 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 AWS EC2 인스턴스 상세정보 중 **IPv4 Public IP** 사용
 
 ### Run Jupyter Notebook
 
@@ -254,16 +254,18 @@ your-terminal> disown -h
 ```sh
 your-terminal> sudo jupyter-notebook --allow-root
 ...
-[...] https://172.13.53.203:8888/
+[...] https://172.31.35.203:8888/
 ...
 ```
 
 ### Connect to Jupyter Notebook on Web Browser
 
-> {your-jupyter-notebook-scheme}://**{your-host-public-ip}**:{your-jupyter-notebook-port}
+> {your-jupyter-notebook-scheme}://{your-host-ip}:{your-jupyter-notebook-port}
 
-`{your-host-ip}` 는 AWS EC2 인스턴스의 **Private IPs** 이므로 로그 정보 그대로 사용해서는 Jupyter Notebook 에 접속할 수 없음		
-웹 브라우져를 실행하고 URL 입력 창에 {your-jupyter-notebook-scheme}://**{your-host-public-ip}**:{your-jupyter-notebook-port} 를 입력하여 접속
+Jupyter Notebook 실행 로그 정보 중 접속 URL {your-jupyter-notebook-scheme}://**{your-host-ip}**:{your-jupyter-notebook-port} 에서 `{your-host-ip}` 는 AWS EC2 인스턴스의 **Private IPs** 즉, EC2 내부 IP 로 제시하는 URL 그대로 사용해서는 Jupyter Notebook 에 접속할 수 없음   
+웹 브라우져를 실행하고 URL 입력 창에 {your-jupyter-notebook-scheme}://**{AWS EC2 인스턴스 상세정보 중 IPv4 Public IP}**:{your-jupyter-notebook-port} 를 입력하여 접속
+
+> ~~https://172.31.35.203:8888~~
 
 ```
 https://54.081.311.162:8888
