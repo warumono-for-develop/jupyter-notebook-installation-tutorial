@@ -365,26 +365,18 @@ your-terminal> cat -n .vimrc
 ---
 </details>
 
-## More optional sections
-
-## Contributing
-
-See [the contributing file](CONTRIBUTING.md)!
-
-PRs accepted.
-
-Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
-
-### Any optional sections
-
 ## Contact
 
-**email** warumono.for.develop@gmail.com
+**email** warumono.for.develop@gmail.com    
 **blog** https://warumono-for-develop.github.io
+
+## Acknowledgements
+
+* [안경잡이개발자](https://ndb796.tistory.com/)
 
 ## License
 
-[MIT © Richard McRichface.](../LICENSE)
+Distributed under the MIT License. See [`LICENSE`][license-url] for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
