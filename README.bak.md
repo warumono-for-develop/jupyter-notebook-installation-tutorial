@@ -16,7 +16,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/warumono-for-develop/jupyter-notebook-installation-tutorial">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/warumono-for-develop/default/blob/master/logos/warumono-logo-492x500.png?raw=true" alt="Logo" width="292" height="300">
   </a>
 
   <h1 align="center">Jupyter Notebook Installation Tutorial</h1>
