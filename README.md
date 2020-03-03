@@ -168,11 +168,11 @@ my-jupyter-notebook-key.key  my-jupyter-notebook-cert.pem
 
 설정 파일 기존 내용의 마지막 아래에 설정 내용 추가 입력
 
-> c = get_config()
-> c.NotebookApp.password = u'{generated-your-password-hash-value}'
-> c.NotebookApp.ip = '{your-host-ip | your-aws-ec2-private-ips}'
-> c.NotebookApp.notebook_dir = '{your-host-begin-path}'
-> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'
+> c = get_config()    
+> c.NotebookApp.password = u'{generated-your-password-hash-value}'    
+> c.NotebookApp.ip = '{your-host-ip | your-aws-ec2-private-ips}'    
+> c.NotebookApp.notebook_dir = '{your-host-begin-path}'   
+> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'   
 > c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
 
 ```sh
@@ -183,7 +183,7 @@ my-jupyter-notebook-key.key  my-jupyter-notebook-cert.pem
 c = get_config()
 c.NotebookApp.password = u'sha1:g0bf6y023f60:75h6h014f68d70c03175et61p4675c497b83u63'
 c.NotebookApp.ip = '172.31.35.203'
-c.NotebookApp.notebook_dir = '/'
+c.NotebookApp.notebook_dir = '/home/ubuntu'
 ```
 
 <details> 
@@ -202,11 +202,14 @@ c.NotebookApp.certfile = u'my-jupyter-notebook-cert.pem'
 ---
 </details>
 
-#### Step 5
+### Step 5
 
-##### Jupyter Notebook 백그라운드 실행 설정
+Jupyter Notebook 백그라운드 실행 설정
 
-정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **_`백그라운드에서 실행되도록 설정`_**해야 함
+정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 백그라운드에서 실행되도록 설정할 것을 권장
+
+> bg
+> disown -h
 
 ```sh
 your-terminal> bg
@@ -214,16 +217,36 @@ your-terminal> bg
 your-terminal> disown -h
 ```
 
-
-
-
-
-
-
-
-
-
 ## Usage 사용방법
+
+정상적으로 Jupyter Notebook 설치 및 설정이 완료되었다면 실행하여 웹 브라우져로 접근 후 확인
+
+### Run Jupyter Notebook
+
+> jupyter-notebook --allow-root
+> ...
+> [...] https://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/
+> ...
+
+```sh
+your-terminal> sudo jupyter-notebook --allow-root
+...
+[...] https://172.31.35.203:8888/
+...
+```
+
+### Connect to Jupyter Notebook with Web Browser
+
+웹 브라우져를 실행하고 URL 입력 창에 [**`https://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/`**](#run-jupyter-notebook) 를 입력하여 접속    
+Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 `경고 화면`이 나오게 됨   
+이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **`thisisunsafe`** 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능
+
+### Jupyter Notebook Dashboard
+
+*Jupyter 공식 웹사이트의 예시 화면*    
+예시 화면의 오른쪽 위 **_`New`_** 버튼을 눌러 Drop Down 메뉴 중 **_`Terminal`_** 을 선택하면 새 브라우져 창(또는 새 탭)으로 터미널 화면이 나옴    
+![Jupyter Notebook Dashboard](https://jupyter.readthedocs.io/en/latest/_images/tryjupyter_file.png)
+
 
 ### Jenkins
 
