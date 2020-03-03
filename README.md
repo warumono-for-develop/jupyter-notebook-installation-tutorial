@@ -251,7 +251,10 @@ Note: The `license` badge image link at the top of this file should be updated w
 
 
 ### VIM 에디터 실행
-|'vi {your-file-name}'
+
+vi 명령어 이용
+
+> vi {your-file-name}
 
 ```sh
 your-terminal> vi README.md
@@ -285,9 +288,9 @@ your-terminal> vi README.md
 |<kbd>p</kbd>|복사한 내용을 현재 커서가 위치한 행 이후 행에 붙여 넣기||
 |<kbd>P</kbd>|복사한 내용을 현재 커서가 위치한 행 이전 행에 붙여 넣기|<kbd>⇧</kbd> + <kbd>p</kbd> 와 동일|
 |<kbd>u</kbd>|직전 실행한 명령 취소|undo|
-|<kbd>/exp</kbd> + <kbd>enter</kbd>|'exp' 와 같은 문자열을 현재 커서위치에서 오른쪽 또는 아래 방향에서 검색||
+|<kbd>/exp</kbd> + <kbd>enter</kbd>|'exp' 문자열을 현재 커서 위치에서 오른쪽 또는 아래 방향에서 검색||
 |<kbd>n</kbd>|찾은 문자가 여러개인 경우 현재 커서 위치에서 오른쪽 또는 아래 방향으로 일치하는 다음 문자 위치로 이동||
-|<kbd>N</kbd>|찾은 문자가 여러개인 경우 현재 커서 위치에서 왼쪽 또는 위 방향으로 일치하는 이전 문자 위치로 이동|<kbd>⇧</kbd> + <kbd>n</kbd> 와 동일|
+|<kbd>N</kbd>|찾은 문자가 여러개인 경우 현재 커서 위치에서 왼쪽 또는 위 방향으로 일치하는 이전 문자 위치로 이동|<kbd>shift</kbd> + <kbd>n</kbd> 와 동일|
 
 ### ex 명령 모드 | 라인 명령 모드
 명령 모드 상태에서 입력하는 키가 `에디터의 왼쪽 아래 모서리 부분`에 나타나며 ex 명령어를 이용하여 *에디터 저장, 종료, 탐색, 치환 및 vi 환경 설정 등이 가능*한 상태
@@ -313,6 +316,28 @@ your-terminal> vi README.md
 :wq
 ```
 편집한 내용은 저장하고 편집기 종료
+
+### VIM 에디터 줄 번호 보기
+
+지정된 파일을 생성하여 명령어 한 줄 입력 후 저장하는 것만으로 설정 가능
+
+> vi ~/.vimrc
+
+```sh
+your-terminal> vi ~/.vimrc
+```
+
+```sh
+set number
+```
+* 또한, 파일 내용 보기 명령어 `cat` 도 옵션 `-n` 을 이용하여 줄 번호 보기 가능
+
+> cat -n {your-file-name}
+
+```sh
+your-terminal> cat -n .vimrc
+     1  set number
+```
 
 ---
 </details>
