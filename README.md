@@ -80,12 +80,123 @@
     OpenSSL 1.1.1  11 Sep 2018    
     *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
 
-## Install
+## Install 설치
 
 This module depends upon a knowledge of [Markdown]().
 
+### Step 1
+
+Install python3-pip
+
+> apt-get update    
+> apt-get install python3-pip
+
+```sh
+your-terminal> sudo apt-get update
+...
+your-terminal> sudo apt-get install python3-pip
+...
 ```
+
+### Step 2
+
+Install Jupyter Notebook
+
+> pip3 install notebook
+
+```sh
+your-terminal> sudo pip3 install notebook
+...
 ```
+### Step 3
+
+Configure password of Jupyter Notebook
+
+사용자가 입력한 비밀번호를 자동변환하여 나온 해시 값은 **메모하여 이 후 설정 단계에서 사용**   
+작업 완료 후, <kbd>control</kbd> + <kbd>Z</kbd> 또는 <kbd>control</kbd> + <kbd>D</kbd> 키 입력으로 python3 에서 나옴
+
+> python3   
+> from notebook.auth import passwd    
+> passwd()
+
+> 'sha1:{generated-your-password-hash-value}'
+
+```sh
+your-terminal> python3
+Python 3.6.5 ...
+.....
+>> from notebook.auth import passwd
+>> passwd()
+Enter password:
+Verify password:
+'sha1:g0bf6y023f60:75h6h014f68d70c03175et61p4675c497b83u63'
+```
+
+#### Step 4
+
+##### Jupyter Notebook 설정 파일 생성 및 편집
+
+정상적으로 설정 파일이 생성되면 해당 파일의 경로가 표시 됨
+
+*생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
+
+```sh
+your-terminal> cd ~
+
+your-terminal> jupyter notebook --generate-config
+
+Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
+
+your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
+```
+
+*jupyter_notebook_config.py* 내용
+
+*설정 파일 기존 내용의 마지막 아래에 추가 입력*
+
+*설정 파일 편집을 완료하였다면, 저장 (esc 키 입력 후 wq! 를 입력)*
+
+```sh
+...
+# ============================================================
+# your comment
+# ============================================================
+
+c = get_config()
+
+c.NotebookApp.password = u'{auto-password-hash-value}'
+
+c.NotebookApp.ip = '{your-aws-ec2-private-ip}'
+
+c.NotebookApp.notebook_dir = '{your-aws-ec2-begin-path}'
+
+c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
+
+c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
+```
+
+#### Step 5
+
+##### Jupyter Notebook 백그라운드 실행 설정
+
+정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 **_`백그라운드에서 실행되도록 설정`_**해야 함
+
+```sh
+your-terminal> bg
+
+[3]+ sudo jupyter-notebook --allow-root &
+
+your-terminal> disown -h
+```
+
+
+
+
+
+
+
+
+
 
 ## Usage 사용방법
 
