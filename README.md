@@ -152,7 +152,7 @@ Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
 your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
 
-<details> 
+<details>
   <summary>[Optional] SSL 사설 인증서 생성</summary>
 SSL 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 보안성을 높이기 위하여 사용하는 것을 권장   
 사설 인증서보다는 정상적인 인증기관으로부터 발급받은 인증서를 사용할 것을 권장
@@ -190,11 +190,11 @@ c.NotebookApp.ip = '172.31.35.203'
 c.NotebookApp.notebook_dir = '/home/ubuntu'
 ```
 
-<details> 
+<details>
   <summary>[Optional] SSL 사설 인증서 적용</summary>
-SSL 을 적용하고자 사설 인증서를 생성하였다면, 다음 설정 내용을 추가로 입력
+SSL 을 적용하고자 사설 인증서를 생성하였다면, 다음 설정 내용을 추가로 입력    
 
-> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'
+> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'   
 > c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
 
 ```sh
@@ -246,7 +246,7 @@ your-terminal> sudo jupyter-notebook --allow-root
 
 웹 브라우져를 실행하고 URL 입력 창에 [**`{your-jupyter-notebook-scheme}://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/`**](#run-jupyter-notebook) 를 입력하여 접속  
 
-<details> 
+<details>
   <summary>User variable 사용자 변수</summary>
 Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 `경고 화면`이 나오게 됨   
 이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **`thisisunsafe`** 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능 
@@ -267,7 +267,7 @@ Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급�
 
 ## FAQ
 
-<details> 
+<details>
   <summary>User variable 사용자 변수</summary>
 본 지침서는 작성자의 기준으로 설명하다보니 모든 작업의 내용대로 복사하여 사용할 경우 의도하지 않은 과정이나 결과를 도래할 수 있기에,
 사용자 자신의 환경에 맞추거나 또는 원하는 내용대로 작업할 수 있도록 설명하기 위하여 변수 형태로 사용    
