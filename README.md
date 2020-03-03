@@ -251,21 +251,16 @@ your-terminal> sudo jupyter-notebook --allow-root
 <details>
   <summary>User variable 사용자 변수</summary>   
 Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 경고 화면이 나오게 됨   
-이 경우, 경고 화면에서 어떠한 동작도 하지 않고 <kbd>t</kbd><kbd>h</kbd><kbd>i</kbd><kbd>s</kbd><kbd>i</kbd><kbd>s</kbd><kbd>u</kbd><kbd>n</kbd><kbd>s</kbd><kbd>a</kbd><kbd>f</kbd><kbd>e<kbd> 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능 
+이 경우, 경고 화면에서 어떠한 동작도 하지 않고 <kbd>t</kbd><kbd>h</kbd><kbd>i</kbd><kbd>s</kbd><kbd>i</kbd><kbd>s</kbd><kbd>u</kbd><kbd>n</kbd><kbd>s</kbd><kbd>a</kbd><kbd>f</kbd><kbd>e</kbd> 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능 
 
 ---
 </details>
-
-Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 `경고 화면`이 나오게 됨   
-이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **`thisisunsafe`** 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능
 
 ### Jupyter Notebook Dashboard
 
 *Jupyter 공식 웹사이트의 예시 화면*    
 예시 화면의 오른쪽 위 *`New v`* 버튼을 눌러 Drop Down 메뉴 중 *`Terminal`* 을 선택하면 새 브라우져 창 (또는 새 탭) 으로 터미널 화면이 나옴    
 ![Jupyter Notebook Dashboard](https://jupyter.readthedocs.io/en/latest/_images/tryjupyter_file.png)
-
-### Any optional sections
 
 ## FAQ
 
