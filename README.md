@@ -119,7 +119,7 @@ Generate password for Jupyter Notebook
 > from notebook.auth import passwd    
 > passwd()
 
-> 'sha1:<generated-your-password-hash-value>'
+> 'sha1:\<generated-your-password-hash-value\>'
 
 ```sh
 your-terminal> python3
@@ -132,12 +132,12 @@ Verify password:
 'sha1:g0bf6y023f60:75h6h014f68d70c03175et61p4675c497b83u63'
 ```
 
-#### Step 4
+### Step 4
 
 Configure Jupyter Notebook
 
-설정 파일을 생성하고 
-*생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
+설정 파일을 생성하고 vim 에디터를 이용하여 비밀번호 등의 정보를 입력
+*설정 파일은 Jupyter Notebook 기본 설정 정보가 포함되어 생성 됨*
 
 > jupyter notebook --generate-config
 > sudo vi ~/.jupyter/jupyter_notebook_config.py
@@ -149,9 +149,7 @@ your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
 
 *jupyter_notebook_config.py* 내용
-
 *설정 파일 기존 내용의 마지막 아래에 추가 입력*
-
 *설정 파일 편집을 완료하였다면, 저장 (esc 키 입력 후 wq! 를 입력)*
 
 ```sh
@@ -159,17 +157,11 @@ your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 # ============================================================
 # your comment
 # ============================================================
-
 c = get_config()
-
 c.NotebookApp.password = u'{auto-password-hash-value}'
-
 c.NotebookApp.ip = '{your-aws-ec2-private-ip}'
-
 c.NotebookApp.notebook_dir = '{your-aws-ec2-begin-path}'
-
 c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
-
 c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 ```
 
@@ -244,6 +236,71 @@ Note: The `license` badge image link at the top of this file should be updated w
   <summary>User variable 사용자 변수</summary>
 본 지침서는 작성자의 기준으로 설명하다보니 모든 작업의 내용대로 복사하여 사용할 경우 의도하지 않은 과정이나 결과를 도래할 수 있기에,
 사용자 자신의 환경에 맞추거나 또는 원하는 내용대로 작업할 수 있도록 설명하기 위하여 변수 형태로 사용    
+
+
+- `{variable-name}` 사용자가 직접 입력해야하는 부분. http://`{your-host-ip}`:8080 &nbsp; - - - > &nbsp; http://`123.456.789.0`:8080    
+- `<variable-name>` 사용자의 어떠한 행위에 따른 제공되는 결과 부분. `<your-cert-key-name>`.pem &nbsp; - - - > &nbsp; `my_cert`.pem
+
+---
+</details>
+
+<details> 
+  <summary>VIM 에디터 간단 사용 방법</summary>
+본 지침서는 Linux 계열의 OS 기준으로 설명하다보니 VIM 에디터를 이용하여 vi 명령어로 파일 내용을 편집   
+사용자 자신의 환경에서 이에 준하는 환경에서 작업할 것을 권장
+
+
+'vi {your-file-name}' 입력하면 
+이 파일명의 파일이 존재하면 해당 파일을 열어서 보여주고 (아직 읽기만 가능한 상태) "{your-file-name}" file info aaa
+존재하지 않을 경우 해당 파일명과 동일한 이름을 갖는 새 파일을 열음 (아직은 저장되지않은상태 ) "{your-file-name}" [New File]
+이 상태에서 i또는 a또는 o를 누르면 ex 명령 부분
+내용 편집 후 <kbd>esc</kbd> 를 누르면 ex 명령 모드 전환 (아직은 저장되지 않은 상태).
+
+
+#### 명령 모드 
+vi 명령어로 임의의 파일을 열었을 경우를 말하며, 커서의 이동, 수정, 삭제, 복사, 붙여넣기 그리고 탐색 등이 가능
+<kbd>i</kbc>, <kbd>a</kbc>, <kbd>o</kbc>, <kbd>I</kbc>, <kbd>A</kbc>, <kbd>O<kbd> 등의 키를 눌러서 입력 모드로 전환
+입력 모드 또는 ex 명령 모드 상태에서 <kbd>esc</kbd> 키를 누르면 명령 모드로 전환
+
+|명령어|설명|비고|
+|----|---|---|
+|x|현재 커서가 위치한 문자를 삭제|del 키 기능|
+|dw|단어 삭제||
+|dd|현재 커서의 행 삭제||
+|숫자 dd|현재 커서부터 숫자만큼의 행 삭제||
+|yy|현재 커서가 있는 행을 복사||
+|숫자 yy|현재 커서부터 숫자만큼의 행을 복사||
+|p|복사한 내용을 현재 행 이후에 붙여 넣기||
+|P|복사한 내용을 현재 행 이전에 붙여 넣기|shift + p 와 동일|
+
+u   직전에 내린 명령을 취소
+/exp + enter   'exp' 와 같은 문자열을 현재 커서가 위치한 곳부터 아래 방향으로 검색
+n   찾은 문자 중에서 다음 문자로 이동
+N   n이 아래로 검색을 계속 내려가는 거라면 N은 위로 검색을 계속하는거 (shift + n)
+
+
+#### 입력 모드
+입력 모드 이외에도 편집 모드, input mode, insert mode 등으로 지칭
+파일 내용 편집이 가능한 상태
+명령 모드에서 입력 전환키를 누르면 ex 명령어 창에 -- INSERT -- 로 나타남
+
+### ex 명령 모드 | 라인 명령 모드
+명령 모드 상태에서 입력하는 키가 에디터의 왼쪽 아래 모서리 부분 나타나며 ex 명령어를 이용하여 에디터 저장, 종료, 탐색, 치환 및 vi 환경 설정 등을 할 수 있는 상태
+명령 모드에서 ':'키를 입력했을 때 화면 맨 아랫줄에서 명령을 수행하는 모드
+
+:q
+편집기 종료
+편집한 내용이 있다면 저장하지 않은 것에 에러를 보여주며 편집기는 종료되지 않음
+
+:q!
+편집한 내용은 저장하지 않고 편집기 종료
+
+:wq
+편집한 내용은 저장하고 편집기 종료
+
+
+
+
 
 
 - `{variable-name}` 사용자가 직접 입력해야하는 부분. http://`{your-host-ip}`:8080 &nbsp; - - - > &nbsp; http://`123.456.789.0`:8080    
