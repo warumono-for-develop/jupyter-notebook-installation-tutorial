@@ -140,6 +140,11 @@ Verify password:
 
 Configure Jupyter Notebook
 
+### Caution
+
+> 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 **IPv4 Public IP** 를 이용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 **Private IPs** 를 이용하므로 미리 메모    
+> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음
+
 설정 파일을 생성하고 vim 에디터를 이용하여 비밀번호 등의 정보를 입력    
 *설정 파일은 Jupyter Notebook 기본 설정 정보가 포함되어 생성 됨*
 
@@ -175,7 +180,7 @@ my-jupyter-notebook-key.key  my-jupyter-notebook-cert.pem
 
 > c = get_config()    
 > c.NotebookApp.password = u'{generated-your-password-hash-value}'    
-> c.NotebookApp.ip = '{your-host-ip | your-aws-ec2-private-ips}'    
+> c.NotebookApp.ip = '{your-host-ip}'    
 > c.NotebookApp.notebook_dir = '{your-host-begin-path}'   
 > c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'   
 > c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
@@ -229,13 +234,20 @@ your-terminal> disown -h
 
 정상적으로 Jupyter Notebook 설치 및 설정이 완료되었다면 실행하여 웹 브라우져로 접근 후 확인
 
+### Caution
+
+> AWS EC2 를 이용하여 해당 인스턴스에 접근할 것이기에 `{your-host-ip}` 는 AWS EC2 인스턴스 상세정보 중 **Private IPs** 를 사용    
+> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음
+
 ### Run Jupyter Notebook
 
 > jupyter-notebook --allow-root   
 
-> [...] {your-jupyter-notebook-scheme}://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/    
+> \[...\] {your-jupyter-notebook-scheme}://{your-host-ip}:{your-jupyter-notebook-port}/    
 
 작성자는 SSL 을 적용하여 작업하는 상태이므로, 다음 예시에서 `{your-jupyter-notebook-scheme}` 은 `https` 로 나타남
+AWS EC2 를 이용하여 해당 인스턴스에 접근할 것이기에 `{your-host-ip}` 는 AWS EC2 인스턴스 상세정보 중 **Private IPs** 를 사용
+AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음
 
 ```sh
 your-terminal> sudo jupyter-notebook --allow-root
