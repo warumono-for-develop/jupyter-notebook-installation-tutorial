@@ -142,10 +142,12 @@ Configure Jupyter Notebook
 
 ### Caution
 
-> 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 **IPv4 Public IP** 를 이용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 **Private IPs** 를 이용하므로 미리 메모    
-> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음
+> 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 **IPv4 Public IP** 를 사용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 **Private IPs** 를 사용하므로 미리 메모    
+> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음		
+> *작성자의 AWS EC2 인스턴스는 Elastic IP 미사용, 도메인 미사용 상태로 기본으로 제공되는 IP 정보만으로 설명하고 사용*
 
-설정 파일을 생성하고 vim 에디터를 이용하여 비밀번호 등의 정보를 입력    
+설정 파일을 생성하고 VIM 에디터를 사용하여 비밀번호 등의 정보를 입력    
+Jupyter Notebook 은 아이디에 해당하는 계정정보는 없고 **비밀번호만으로 접속**		
 *설정 파일은 Jupyter Notebook 기본 설정 정보가 포함되어 생성 됨*
 
 > jupyter notebook --generate-config    
@@ -158,7 +160,8 @@ your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
 
 <details>
-  <summary>[Optional] SSL 사설 인증서 생성</summary>   
+  <summary>[Optional] SSL 사설 인증서 생성</summary> 
+
 SSL 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 보안성을 높이기 위하여 사용하는 것을 권장   
 사설 인증서보다는 정상적인 인증기관으로부터 발급받은 인증서를 사용할 것을 권장
 
@@ -176,7 +179,7 @@ my-jupyter-notebook-key.key  my-jupyter-notebook-cert.pem
 ---
 </details>
 
-설정 파일 기존 내용의 마지막 아래에 설정 내용 추가 입력
+설정 파일 기존 내용 마지막 아래에 설정 내용 추가 입력
 
 > c = get_config()    
 > c.NotebookApp.password = u'{generated-your-password-hash-value}'    
@@ -197,7 +200,8 @@ c.NotebookApp.notebook_dir = '/home/ubuntu'
 ```
 
 <details>
-  <summary>[Optional] SSL 사설 인증서 적용</summary>   
+  <summary>[Optional] SSL 사설 인증서 적용</summary> 
+
 SSL 을 적용하고자 사설 인증서를 생성하였다면, 다음 설정 내용을 추가로 입력
 
 
@@ -236,8 +240,7 @@ your-terminal> disown -h
 
 ### Caution
 
-> AWS EC2 를 이용하여 해당 인스턴스에 접근할 것이기에 `{your-host-ip}` 는 AWS EC2 인스턴스 상세정보 중 **Private IPs** 를 사용    
-> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음
+> 앞서 [Step 4](#step-4) 에서 설명한대로 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 **IPv4 Public IP** 를 사용
 
 ### Run Jupyter Notebook
 
@@ -246,8 +249,6 @@ your-terminal> disown -h
 > \[...\] {your-jupyter-notebook-scheme}://{your-host-ip}:{your-jupyter-notebook-port}/    
 
 작성자는 SSL 을 적용하여 작업하는 상태이므로, 다음 예시에서 `{your-jupyter-notebook-scheme}` 은 `https` 로 나타남
-AWS EC2 를 이용하여 해당 인스턴스에 접근할 것이기에 `{your-host-ip}` 는 AWS EC2 인스턴스 상세정보 중 **Private IPs** 를 사용
-AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음
 
 ```sh
 your-terminal> sudo jupyter-notebook --allow-root
@@ -256,14 +257,16 @@ your-terminal> sudo jupyter-notebook --allow-root
 ...
 ```
 
-### Connect to Jupyter Notebook with Web Browser
+### Connect to Jupyter Notebook on Web Browser
 
-웹 브라우져를 실행하고 URL 입력 창에 [**`{your-jupyter-notebook-scheme}://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/`**](#run-jupyter-notebook) 를 입력하여 접속  
+`{your-host-ip}` 는 AWS EC2 인스턴스의 **Private IPs** 이므로 로그 정보 그대로 사용해서는 Jupyter Notebook 에 접속할 수 없음		
+웹 브라우져를 실행하고 URL 입력 창에 [**`{your-jupyter-notebook-scheme}://{your-host-public-ip}:{your-jupyter-notebook-port}/`**](#run-jupyter-notebook) 를 입력하여 접속
 
 <details>
-  <summary>User variable 사용자 변수</summary>   
-Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 경고 화면이 나오게 됨   
-이 경우, 경고 화면에서 어떠한 동작도 하지 않고 <kbd>t</kbd><kbd>h</kbd><kbd>i</kbd><kbd>s</kbd><kbd>i</kbd><kbd>s</kbd><kbd>u</kbd><kbd>n</kbd><kbd>s</kbd><kbd>a</kbd><kbd>f</kbd><kbd>e</kbd> 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능 
+  <summary>SSL 적용 Jupyter Notebook URL 접근 불가 해결 방법</summary> 
+
+Google Chrome 웹 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 경고 화면이 나오게 됨   
+이 경우, 경고 화면에서 어떠한 동작도 하지 않고 <kbd>t</kbd><kbd>h</kbd><kbd>i</kbd><kbd>s</kbd><kbd>i</kbd><kbd>s</kbd><kbd>u</kbd><kbd>n</kbd><kbd>s</kbd><kbd>a</kbd><kbd>f</kbd><kbd>e</kbd> 를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능
 
 ---
 </details>
