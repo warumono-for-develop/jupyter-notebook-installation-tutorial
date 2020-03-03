@@ -140,7 +140,7 @@ Configure Jupyter Notebook
 *설정 파일은 Jupyter Notebook 기본 설정 정보가 포함되어 생성 됨*
 
 > jupyter notebook --generate-config
-> sudo vi ~/.jupyter/jupyter_notebook_config.py
+> vi ~/.jupyter/jupyter_notebook_config.py
 
 ```sh
 your-terminal> jupyter notebook --generate-config
@@ -148,22 +148,59 @@ Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
 your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
 
-*jupyter_notebook_config.py* 내용
-*설정 파일 기존 내용의 마지막 아래에 추가 입력*
-*설정 파일 편집을 완료하였다면, 저장 (esc 키 입력 후 wq! 를 입력)*
+<details> 
+  <summary>[Optional] SSL 사설 인증서 생성</summary>
+SSL 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 보안성을 높이기 위하여 사용하는 것을 권장   
+사설 인증서보다는 정상적인 인증기관으로부터 발급받은 인증서를 사용할 것을 권장
+
+> sudo openssl req -x509 -nodes -days {valid-days} -newkey rsa:1024 -keyout "{your-juypter-notebook-ssl-keyfile-name}.key" -out "{your-jupyter-notebook-ssl-certfile-name}.pem" -batch
+
+```sh
+your-terminal> mkdir ~/{your-ssl-file-directory-name}
+your-terminal> cd {your-ssl-file-directory-name}
+your-terminal> sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout "my-jupyter-notebook-key.key" -out "my-jupyter-notebook-cert.pem" -batch
+your-terminal> ls
+my-jupyter-notebook-key.key  my-jupyter-notebook-cert.pem
+```
+
+---
+</details>
+
+설정 파일 기존 내용의 마지막 아래에 설정 내용 추가 입력
+
+> c = get_config()
+> c.NotebookApp.password = u'{generated-your-password-hash-value}'
+> c.NotebookApp.ip = '{your-host-ip | your-aws-ec2-private-ips}'
+> c.NotebookApp.notebook_dir = '{your-host-begin-path}'
+> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'
+> c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
 
 ```sh
 ...
 # ============================================================
-# your comment
+# my jyputer-notebook configuration
 # ============================================================
 c = get_config()
-c.NotebookApp.password = u'{auto-password-hash-value}'
-c.NotebookApp.ip = '{your-aws-ec2-private-ip}'
-c.NotebookApp.notebook_dir = '{your-aws-ec2-begin-path}'
-c.NotebookApp.keyfile = u'{your-private-cert-file-name.key-full-path}'
-c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
+c.NotebookApp.password = u'sha1:g0bf6y023f60:75h6h014f68d70c03175et61p4675c497b83u63'
+c.NotebookApp.ip = '172.31.35.203'
+c.NotebookApp.notebook_dir = '/'
 ```
+
+<details> 
+  <summary>[Optional] SSL 사설 인증서 적용</summary>
+SSL 을 적용하고자 사설 인증서를 생성하였다면, 다음 설정 내용을 추가로 입력
+
+> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'
+> c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
+
+```sh
+
+c.NotebookApp.keyfile = u'my-jupyter-notebook-key.key'
+c.NotebookApp.certfile = u'my-jupyter-notebook-cert.pem'
+```
+
+---
+</details>
 
 #### Step 5
 
@@ -173,9 +210,7 @@ c.NotebookApp.certfile = u'{your-public-cert-file-name.pem-full-path}'
 
 ```sh
 your-terminal> bg
-
 [3]+ sudo jupyter-notebook --allow-root &
-
 your-terminal> disown -h
 ```
 
@@ -319,7 +354,7 @@ your-terminal> vi README.md
 
 ### VIM 에디터 줄 번호 보기
 
-지정된 파일을 생성하여 명령어 한 줄 입력 후 저장하는 것만으로 설정 가능
+지정된 파일 이름으로 생성하여 명령어 한 줄 입력 후 저장하는 것만으로 설정 가능
 
 > vi ~/.vimrc
 
@@ -327,10 +362,14 @@ your-terminal> vi README.md
 your-terminal> vi ~/.vimrc
 ```
 
+.vimrc 파일에 명령어 한 줄 입력 후 저장
+
+> set number
+
 ```sh
 set number
 ```
-* 또한, 파일 내용 보기 명령어 `cat` 도 옵션 `-n` 을 이용하여 줄 번호 보기 가능
+* 또한, 파일 내용 보기 명령어 `cat` 은 옵션 `-n` 을 이용하여 줄 번호 보기 가능
 
 > cat -n {your-file-name}
 
