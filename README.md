@@ -294,13 +294,13 @@ Google Chrome 웹 브라우져의 경우, 알 수 없는 인증기관에서 발�
 
 본 지침서에 따라 작업하는 *사용자*가 아래와 같은 영역의 내용을 참조하여 **반드시 해야하는 작업**을 나열
 
-> mkdir {your-directory-name}
-> cd {your-directory-name}
+> mkdir {your-directory-name}   
+> cd {your-directory-name}    
 > ls
 
 > {your-directory-name}
 
-> vi {your-new-file-name}.sh
+> vi {your-file-name}.sh
 
 ### 작성자 예시 내용 영역
 
