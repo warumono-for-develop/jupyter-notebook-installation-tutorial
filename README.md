@@ -25,6 +25,8 @@
   </p>
 </p>
 
+
+
 ## Table of Contents 목차
 
 - [Getting Started](#getting-started)
@@ -35,6 +37,8 @@
 - [Contributing](#contributing)
 - [Contact](#contact)
 - [License](#license)
+
+
 
 ## Getting Started 시작하기
 
@@ -80,9 +84,9 @@
     OpenSSL 1.1.1  11 Sep 2018    
     *Ubuntu Server 18.04 LTS 에 기본적으로 설치되어 있음*
 
-## Install 설치
 
-This module depends upon a knowledge of [Markdown]().
+
+## Install 설치
 
 ### Step 1
 
@@ -136,10 +140,10 @@ Verify password:
 
 Configure Jupyter Notebook
 
-설정 파일을 생성하고 vim 에디터를 이용하여 비밀번호 등의 정보를 입력
+설정 파일을 생성하고 vim 에디터를 이용하여 비밀번호 등의 정보를 입력    
 *설정 파일은 Jupyter Notebook 기본 설정 정보가 포함되어 생성 됨*
 
-> jupyter notebook --generate-config
+> jupyter notebook --generate-config    
 > vi ~/.jupyter/jupyter_notebook_config.py
 
 ```sh
@@ -217,27 +221,39 @@ your-terminal> bg
 your-terminal> disown -h
 ```
 
+
+
 ## Usage 사용방법
 
 정상적으로 Jupyter Notebook 설치 및 설정이 완료되었다면 실행하여 웹 브라우져로 접근 후 확인
 
 ### Run Jupyter Notebook
 
-> jupyter-notebook --allow-root
-> ...
-> [...] https://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/
-> ...
+> jupyter-notebook --allow-root   
+
+> [...] {your-jupyter-notebook-scheme}://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/    
+
+작성자는 SSL 을 적용하여 작업하는 상태이므로, 다음 예시에서 `{your-jupyter-notebook-scheme}` 은 `https` 로 나타남
 
 ```sh
 your-terminal> sudo jupyter-notebook --allow-root
 ...
-[...] https://172.31.35.203:8888/
+[...] https://172.13.53.203:8888/
 ...
 ```
 
 ### Connect to Jupyter Notebook with Web Browser
 
-웹 브라우져를 실행하고 URL 입력 창에 [**`https://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/`**](#run-jupyter-notebook) 를 입력하여 접속    
+웹 브라우져를 실행하고 URL 입력 창에 [**`{your-jupyter-notebook-scheme}://{your-host-ip | your-aws-ec2-private-ips}:{your-jupyter-notebook-port}/`**](#run-jupyter-notebook) 를 입력하여 접속  
+
+<details> 
+  <summary>User variable 사용자 변수</summary>
+Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 `경고 화면`이 나오게 됨   
+이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **`thisisunsafe`** 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능 
+
+---
+</details>
+
 Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 `경고 화면`이 나오게 됨   
 이 경우, 경고 화면에서 어떠한 동작도 하지 않고 **`thisisunsafe`** 문자를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능
 
@@ -285,9 +301,9 @@ your-terminal> vi README.md
 내용 편집 후 <kbd>esc</kbd> 를 누르면 ex 명령 모드 전환 (아직은 저장되지 않은 상태).
 
 
-#### 명령 모드 
+#### 명령 모드
 
-**파일 내용 읽기만 가능**한 상태
+**파일 내용 읽기만 가능**한 상태    
 커서의 이동, 수정, 삭제, 복사, 붙여넣기 그리고 탐색 등의 기능 수행
 <kbd>i</kbd>, <kbd>a</kbd>, <kbd>o</kbd>, <kbd>I</kbd>, <kbd>A</kbd>, <kbd>O</kbd> 등의 키를 눌러서 입력 모드로 전환
 입력 모드 또는 ex 명령 모드 상태에서 <kbd>esc</kbd> 키를 누르면 명령 모드로 전환
@@ -374,6 +390,14 @@ set number
 your-terminal> cat -n .vimrc
      1  set number
 ```
+
+### sudo | su | su -
+
+|명령어|설명|비고|
+|----|---|---|
+|sudo|다른 계정의 권한만 빌림|슈퍼유저 보안권한으로 프로그램을 구동할 수 있음. 기본 값 슈퍼유저.|
+|su|다른 계정으로 전환|로그아웃을 하지 않고 다른 사용자 계정으로 전환|
+|su -|다른계정으로 전환|다른 사용자 계정으로 전환하고 변경된 계정의 환경변수 이용|
 
 ---
 </details>
