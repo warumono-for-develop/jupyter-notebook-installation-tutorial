@@ -110,7 +110,7 @@ your-terminal> sudo pip3 install notebook
 ```
 ### Step 3
 
-Configure password of Jupyter Notebook
+Generate password for Jupyter Notebook
 
 사용자가 입력한 비밀번호를 자동변환하여 나온 해시 값은 **메모하여 이 후 설정 단계에서 사용**   
 작업 완료 후, <kbd>control</kbd> + <kbd>Z</kbd> 또는 <kbd>control</kbd> + <kbd>D</kbd> 키 입력으로 python3 에서 나옴
@@ -119,7 +119,7 @@ Configure password of Jupyter Notebook
 > from notebook.auth import passwd    
 > passwd()
 
-> 'sha1:{generated-your-password-hash-value}'
+> 'sha1:<generated-your-password-hash-value>'
 
 ```sh
 your-terminal> python3
@@ -134,19 +134,17 @@ Verify password:
 
 #### Step 4
 
-##### Jupyter Notebook 설정 파일 생성 및 편집
+Configure Jupyter Notebook
 
-정상적으로 설정 파일이 생성되면 해당 파일의 경로가 표시 됨
-
+설정 파일을 생성하고 
 *생성된 설정 파일에는 Jupyter Notebook 기본 설정 정보가 있음*
 
+> jupyter notebook --generate-config
+> sudo vi ~/.jupyter/jupyter_notebook_config.py
+
 ```sh
-your-terminal> cd ~
-
 your-terminal> jupyter notebook --generate-config
-
 Writing default config to: /home/ubuntu/.jupyter/jupyter_notebook_config.py
-
 your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 ```
 
