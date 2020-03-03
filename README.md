@@ -32,27 +32,20 @@
 - [Getting Started](#getting-started)
 - [Install](#install)
 - [Usage](#usage)
-- [API](#api)
 - [FAQ](#faq)
-- [Contributing](#contributing)
 - [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 
 
-## Getting Started 시작하기
-
-<kbd>⌥</kbd>    
-<kbd>⌃</kbd>    
-<kbd>⇧</kbd>    
-<kbd>⌫</kbd>    
-<kbd>⌦</kbd>    
-<kbd>⌘</kbd>    
-
+## Getting Started
+<!--
 <details> 
   <summary>Collapse</summary>
   Expanded
 </details>
+-->
 
 ### Requirements 요구사항
 
@@ -86,7 +79,7 @@
 
 
 
-## Install 설치
+## Install
 
 ### Step 1
 
@@ -235,7 +228,7 @@ your-terminal> disown -h
 
 
 
-## Usage 사용방법
+## Usage
 
 정상적으로 Jupyter Notebook 설치 및 설정이 완료되었다면 실행하여 웹 브라우져로 접근 후 확인
 
