@@ -241,7 +241,7 @@ your-terminal> disown -h
 
 ### Caution
 
-> 앞서 [Step 4](#step-4) 에서 설명한대로 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 **IPv4 Public IP** 를 사용
+> 앞서 [Step 4](#step-4) 에서 설명한대로 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 AWS EC2 인스턴스의 **IPv4 Public IP** 를 사용
 
 ### Run Jupyter Notebook
 
@@ -260,11 +260,17 @@ your-terminal> sudo jupyter-notebook --allow-root
 
 ### Connect to Jupyter Notebook on Web Browser
 
+> {your-jupyter-notebook-scheme}://**{your-host-public-ip}**:{your-jupyter-notebook-port}
+
 `{your-host-ip}` 는 AWS EC2 인스턴스의 **Private IPs** 이므로 로그 정보 그대로 사용해서는 Jupyter Notebook 에 접속할 수 없음		
-웹 브라우져를 실행하고 URL 입력 창에 [**`{your-jupyter-notebook-scheme}://{your-host-public-ip}:{your-jupyter-notebook-port}/`**](#run-jupyter-notebook) 를 입력하여 접속
+웹 브라우져를 실행하고 URL 입력 창에 {your-jupyter-notebook-scheme}://**{your-host-public-ip}**:{your-jupyter-notebook-port} 를 입력하여 접속
+
+```
+https://54.081.311.162:8888
+```
 
 <details>
-  <summary>SSL 적용 Jupyter Notebook URL 접근 불가 해결 방법</summary> 
+  <summary>[Optional] 알 수 없는 인증기관 발급 사설 인증서에 따른 Jupyter Notebook URL 접근 불가 해결 방법</summary> 
 
 Google Chrome 웹 브라우져의 경우, 알 수 없는 인증기관에서 발급된 사설인증서를 이용한 사이트 접근을 우선적으로 방지하고 있어 경고 화면이 나오게 됨   
 이 경우, 경고 화면에서 어떠한 동작도 하지 않고 <kbd>t</kbd><kbd>h</kbd><kbd>i</kbd><kbd>s</kbd><kbd>i</kbd><kbd>s</kbd><kbd>u</kbd><kbd>n</kbd><kbd>s</kbd><kbd>a</kbd><kbd>f</kbd><kbd>e</kbd> 를 키보드로 입력하면 Jupyter Notebook Dashboard 화면으로 접근 가능
@@ -281,7 +287,8 @@ Google Chrome 웹 브라우져의 경우, 알 수 없는 인증기관에서 발�
 ## FAQ
 
 <details>
-  <summary>User variable 사용자 변수</summary>   
+  <summary>User variable 사용자 변수</summary>
+
 본 지침서는 작성자의 기준으로 설명하다보니 모든 작업의 내용대로 복사하여 사용할 경우 의도하지 않은 과정이나 결과를 도래할 수 있기에,   
 사용자 자신의 환경에 맞추거나 또는 원하는 내용대로 작업할 수 있도록 설명하기 위하여 변수 형태로 사용
 
@@ -294,6 +301,7 @@ Google Chrome 웹 브라우져의 경우, 알 수 없는 인증기관에서 발�
 
 <details> 
   <summary>VIM 에디터 간단 사용 방법</summary>
+
 본 지침서는 Linux 계열의 OS 기준으로 설명하다보니 VIM 에디터의 vi 명령어로 파일 내용을 편집하는 경우가 빈번하여 간단하게 설명   
 사용자 자신의 환경과 맞지 않을 경우에는 프로그램 설치 등으로 이에 준하는 환경에서 작업할 것을 권장
 
