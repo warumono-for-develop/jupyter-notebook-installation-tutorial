@@ -244,47 +244,8 @@ Google Chrome 브라우져의 경우, 알 수 없는 인증기관에서 발급�
 ### Jupyter Notebook Dashboard
 
 *Jupyter 공식 웹사이트의 예시 화면*    
-예시 화면의 오른쪽 위 **_`New`_** 버튼을 눌러 Drop Down 메뉴 중 **_`Terminal`_** 을 선택하면 새 브라우져 창(또는 새 탭)으로 터미널 화면이 나옴    
+예시 화면의 오른쪽 위 *`New v`* 버튼을 눌러 Drop Down 메뉴 중 *`Terminal`* 을 선택하면 새 브라우져 창 (또는 새 탭) 으로 터미널 화면이 나옴    
 ![Jupyter Notebook Dashboard](https://jupyter.readthedocs.io/en/latest/_images/tryjupyter_file.png)
-
-
-### Jenkins
-
-#### Configure 설정
-
-  - [CloudBees Docker Hub/Registry Notification 2.4.0](https://plugins.jenkins.io/dockerhub-notification/) Plugin 설치    
-  `Jenkins` &nbsp; > &nbsp; `Manage Jenkins` &nbsp; > &nbsp; `Manage Plugins` 화면    
-  검색 입력 창에 `CloudBees` 입력 조회    
-  `CloudBees Docker Hub/Registry Notification` 선택 설치 후, Jenkins 재가동   
-
-  - Build Trigger & Build Execute shell 설정    
-  Jenkins &nbsp; > &nbsp; \<your-job-name\> &nbsp; > &nbsp; Project <your-job-name> > Configure 화면    
-  Build Trigger   
-  - [ ] GitHub hook trigger for GITScm polling 항목 체크박스 비활성화(해제) : 사용자가 GitHub 으로 push 하는 것을 Webhook
-  - [x] Monitor Docker Hub/Registry for image changes 항목 체크박스 활성화 : Docker Hub 에서 이미지 생성 또는 변경되는 것을 Webhook
-  - [x] Specified repositories will trigger this job 항목 체크박스 활성화 : Webhook 된 사항에 따라 Jenkins 가 자동으로 임의의 작업 실행    
-  Repositories 입력 창 {your-docker-image-name} 입력   
-  Build Execute shell   
-  ```sh
-  # 기존 {your-docker-container-name} 컨테이너 삭제   
-  # 단, 최초 실행(docker run)시 {your-docker-container-name} 컨테이너는 존재하지 않아 빌드가 실패하는 것을 방지하기 위하여 || true 구문을 넣어 정상적으로 진행 되도록 처리
-  docker rm -f {your-docker-container-name} || true   
-  docker pull {your-docker-image-name}    
-  docker run -d -p {your-host-port}:{your-application-port} --name {your-docker-container-name} {your-docker-image-name}
-  ```
-  
-  ```sh
-  docker rm -f spring-boot-restful-api-server-repository || true
-  docker pull warumono/spring-boot-restful-api-server
-  docker run -d -p 8080:8080 --name spring-boot-restful-api-server-repository warumono/spring-boot-restful-api-server
-  ```
-
-
-
-```
-```
-
-Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
 
 ### Any optional sections
 
@@ -418,7 +379,8 @@ Small note: If editing the Readme, please conform to the [standard-readme](https
 
 ## Contact
 
-### Any optional sections
+**email** warumono.for.develop@gmail.com
+**blog** https://warumono-for-develop.github.io
 
 ## License
 
