@@ -250,6 +250,9 @@ Jupyter Notebook 백그라운드 실행 설정
 > disown -h
 
 ```sh
+...
+^Z
+[1]+  Stopped                 sudo jupyter-notebook --allow-root
 your-terminal> bg
 [3]+ sudo jupyter-notebook --allow-root &
 your-terminal> disown -h
