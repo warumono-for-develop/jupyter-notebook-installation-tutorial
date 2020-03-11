@@ -244,7 +244,7 @@ Jupyter Notebook 백그라운드 실행 설정
 
 정상적으로 Jupyter Notebook 의 설치 및 설정이 완료된 후 터미널을 이용하여 실행하고, 해당 터미널을 닫거나 임의로 끊기는 경우에는 Jupyter Notebook 프로그램도 중지가 되므로 이를 방지하기 위하여 백그라운드에서 실행되도록 설정할 것을 권장
 
-**Jupyter Notebook 이 실행된 상태**에서 <kbd>ctrl</kbd> + <kbd>Z</kbd> 키를 눌러 Jupyter Notebook 에서 나온 후, 명령어 입력
+**Jupyter Notebook 이 실행된 상태**에서 <kbd>control</kbd> + <kbd>Z</kbd> 키를 눌러 Jupyter Notebook 에서 나온 후, 명령어 입력
 
 > bg    
 > disown -h
