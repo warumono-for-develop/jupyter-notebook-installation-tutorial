@@ -258,6 +258,8 @@ your-terminal> bg
 your-terminal> disown -h
 ```
 
+<kbd>control</kbd> + <kbd>C</kbd> 키를 눌러 Jupyter Notebook 에서 나와도 Jupyter Notebook 은 정상적으로 실행
+
 ### Connect to Jupyter Notebook on Web Browser
 
 > {your-jupyter-notebook-scheme}://{your-host-ip}:{your-jupyter-notebook-port}
