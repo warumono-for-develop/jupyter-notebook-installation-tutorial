@@ -135,8 +135,8 @@ Configure Jupyter Notebook
 
 ### Caution
 
-> 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 AWS EC2 인스턴스의 상세정보 중 **IPv4 Public IP** 를 사용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 상세정보 중 **Private IPs** 를 사용하므로 미리 메모    
-> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음   	
+> 사용자가 Jupyter Notebook 을 외부 (웹 브라우져) 에서 접속할 경우 AWS EC2 인스턴스의 상세정보 중 **IPv4 Public IP** 를 사용하고, AWS EC2 인스턴스 내부에 설치된 Jupyter Notebook 은 해당 인스턴스의 상세정보 중 **Private IPs** 를 사용하므로 미리 메모   
+> AWS EC2 인스턴스의 **Security Group** 에 *Inbound* 로 *TCP* `{your-jupyter-notebook-port}` 값을 추가해줘야 정상적으로 접속할 수 있음   
 > *작성자의 AWS EC2 인스턴스는 Elastic IP 미사용, 도메인 미사용 상태로 기본으로 제공되는 IP 정보만으로 설명하고 사용*
 
 설정 파일을 생성하고 VIM 에디터를 사용하여 비밀번호 등의 정보를 입력    
