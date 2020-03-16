@@ -158,12 +158,12 @@ your-terminal> sudo vi ~/.jupyter/jupyter_notebook_config.py
 SSL 을 사용하지 않아도 Jupyter Notebook 을 사용하는데 문제는 없으나 보안성을 높이기 위하여 사용하는 것을 권장   
 사설 인증서보다는 정상적인 인증기관으로부터 발급받은 인증서를 사용할 것을 권장
 
-
 > openssl req -x509 -nodes -days {valid-days} -newkey rsa:1024 -keyout "{your-juypter-notebook-ssl-keyfile-name}.key" -out "{your-jupyter-notebook-ssl-certfile-name}.pem" -batch
 
+작성자는 기존의 `/home/ubuntu/.jupyter` 디렉토리 내부에 생성
+
 ```sh
-your-terminal> mkdir ~/{your-ssl-file-directory-name}
-your-terminal> cd {your-ssl-file-directory-name}
+your-terminal> cd ~/.jupyter
 your-terminal> sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout "my-jupyter-notebook-key.key" -out "my-jupyter-notebook-cert.pem" -batch
 your-terminal> ls
 my-jupyter-notebook-key.key  my-jupyter-notebook-cert.pem
@@ -195,17 +195,16 @@ c.NotebookApp.notebook_dir = '/home/ubuntu'
 <details>
   <summary>[Optional] SSL 사설 인증서 적용</summary> 
 
-SSL 을 적용하고자 사설 인증서를 생성하였다면, 다음 설정 내용을 추가로 입력
+SSL 을 적용하고자 사설 인증서를 생성하였다면, **두 개의 파일 전체 경로** 입력
 
-
-> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-name}.key'   
-> c.NotebookApp.certfile = u'{your-jupyter-notebook-ssl-certfile-name}.pem'
+> c.NotebookApp.keyfile = u'{your-juypter-notebook-ssl-keyfile-path}/{your-juypter-notebook-ssl-keyfile-name}.key'   
+> c.NotebookApp.certfile = u'{your-juypter-notebook-ssl-certfile-path}/{your-jupyter-notebook-ssl-certfile-name}.pem'
 
 ```sh
 ...
 c.NotebookApp.notebook_dir = '/home/ubuntu'
-c.NotebookApp.keyfile = u'my-jupyter-notebook-key.key'
-c.NotebookApp.certfile = u'my-jupyter-notebook-cert.pem'
+c.NotebookApp.keyfile = u'/home/ubunty/.jupyter/my-jupyter-notebook-key.key'
+c.NotebookApp.certfile = u'/home/ubunty/.jupyter/my-jupyter-notebook-cert.pem'
 ```
 
 ---
